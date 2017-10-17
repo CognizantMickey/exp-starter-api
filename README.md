@@ -6,7 +6,7 @@
 
 # README
 
-### set it up
+### set it up (steeeel it instructions further down!)
 
 1. `$ yarn install`
 1. `$ cp .env.example .env`
@@ -32,7 +32,8 @@ Tests (also runs linter on success)
 
 Test coverage and reports
 * `$ yarn coverage` - runs tests and reports coverage
-* `$ yarn reports` - generates coverage artifacts
+* `$ yarn report` - generates coverage artifacts
+* `$ open coverage/lcov-report/index.html`
 
 Linter alone
 1. `$ yarn lint`
@@ -40,13 +41,16 @@ Linter alone
 ### [curl docs](./curl.md)
 
 ### steeeel it
-* Clone it
+* Clone it `$ git clone <SSH URL> <NAME OF DESIRED DIRECTORY> `
 * Reset your origin url to a new GH url that you own
 * Add the repo on your code climate and circle CI account
-* Change the urls of all the above badges to reflect your repositories
-* IMPORTANT: Update the `CC_TEST_REPORTER_ID` with your token in circle.yml
-  * OR if you do not set up Code Climate, remove that line and also remove all "dependencies" and "test" in the circle.yml file
-* Follow instructions to set it up renaming database to something that is more useful
+* Change the urls of all the above code climate and circle CI badges to reflect your repositories
+  * IF YOUR REPO IS PRIVATE, you will need to add the following at the end of the the `.svg` url: `&circle-token=<statusToken>`. Go to the settings page for your project on CircleCI, click on API permissions, add a "status" token, and update the `.svg` url with that token.
+* IMPORTANT: Update the `CC_TEST_REPORTER_ID` with your reporter id "token" in circle.yml
+  * OR if you do not set up Code Climate, *remove that line* and also remove all "dependencies" and "test" in the circle.yml file
+* Follow instructions to set up repository renaming database to something that is more useful
+  * Change database names in .env.example, .env, and readme setup instructions
+* Change the prod url in the curl docs to an app you will be pushing to (replacing exp-starter-api)
 * Push up the repo and watch for circle and code climate to update
 * Do your thing
 
@@ -71,7 +75,7 @@ This outlines a large portion of basic beginning setup, but is no longer being e
 Subject to deletion.
 
 #### Create basic app
-1. `$ express exp-starter-app` and cd into the created directory
+1. `$ express exp-starter-api` and cd into the created directory
 1. `$ yarn install`
 1. `$ git init`
 1. `$ echo node_modules/ >> .gitignore`
